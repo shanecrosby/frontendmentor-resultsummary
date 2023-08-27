@@ -72,6 +72,9 @@ body {
     #resultcard {
         border-radius: 20px;
     }
+    .itemtotal {
+        padding-right: 1rem;
+    }
 }
 
 /* Small Screens*/
