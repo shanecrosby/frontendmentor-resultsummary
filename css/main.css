@@ -1,0 +1,263 @@
+@font-face {
+    font-family: 'HankenGrotesk';
+    src: url('../assets/fonts/HankenGrotesk-VariableFont_wght.ttf');
+}
+
+:root {
+    --light-red: hsl(0, 100%, 67%);
+    --orange: hsl(39, 100%, 56%);
+    --green: hsl(166, 100%, 37%);
+    --cobalt-blue: hsl(234, 85%, 45%);
+    --blue: hsl(224,30%,27%);
+    --light-lavender: hsl(241, 100%, 89%);
+    --pale-blue: hsl(221, 100%, 96%);
+
+    --light-red-bg: hsla(0, 100%, 67%, .06);
+    --orange-bg: hsla(39, 100%, 56%, .06);
+    --green-bg: hsla(166, 100%, 37%, .06);
+    --cobalt-blue-bg: hsla(234, 85%, 45%, .06);
+
+    /*Light slate blue (background):*/
+    --gradient-bottom: hsl(252, 100%, 67%);
+    /*Light royal blue (background):*/ 
+    --gradient-top: hsl(241, 81%, 54%);
+    /*Violet blue (circle):*/
+    --circle-bottom: hsla(256, 72%, 46%, 1);
+    /*Persian blue (circle):*/
+    --circle-top: hsla(241, 72%, 46%, 0);
+}
+
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.attribution {
+    display:none;
+}
+
+#main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+    background-color: #fafafa;
+}
+
+#card-container {
+    display: flex;
+    flex: 1;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    max-width: 650px;
+    height: max-content;
+    margin: auto;
+    font-family: 'HankenGrotesk';
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 20px 20px 40px var(--pale-blue);
+}
+
+/* Large Screens */
+@media all and (max-width: 1440px) {
+    #card-container {
+        justify-content: flex-end;
+    }
+    #resultcard {
+        border-radius: 20px;
+    }
+}
+
+/* Small Screens*/
+@media all and (max-width: 375px) {
+    #card-container {
+        border-radius: 0;
+    }
+    #resultcard {
+        border-radius: 0;
+    }
+}
+
+
+#resultcard {
+    display: flex;
+    flex: 1;
+    order: 1;
+    margin: 0;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: linear-gradient(0deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%);
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 1.5rem;
+}
+
+#resultcard h3 {
+    color: var(--light-lavender);
+}
+
+#score { 
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1; 
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding: 1rem;
+    width: 8.5rem;
+    height: 8.5rem;
+    background: linear-gradient(0deg, var(--circle-top) 0%, var(--circle-bottom) 100%);
+    border-radius: 50%;    
+}
+
+#score h1 {
+    font-size: 48pt;
+    font-weight: 800;
+    padding: 1rem 0 0 0;
+    margin: 0;
+    transition: font-size 0.2s linear;
+}
+
+#score h1:hover {
+    font-size: 52pt;
+}
+
+#score p {
+    padding: 0;
+    margin: 0;
+    opacity: 0.3;
+}
+
+#result {
+    text-align: center;
+    margin: 0 2rem 2rem 2rem;
+}
+
+#result h2 {
+    margin: auto;
+    margin-top: 2rem;
+}
+
+#result p {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+#summarycard {
+    display: flex;
+    flex: 1;
+    order: 2;
+    margin: 0;
+    width: 100%;
+    padding: 2rem 2rem 0 2rem;
+}
+
+#summarycard h3 {
+    color: var(--blue);
+    margin: 0 0 0 0;
+}
+
+#summarytable {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: 5% 10% 15% 40%;
+    grid-template-areas: "image title . total";
+    height: 2.5rem;
+    width: 90%;
+    column-gap: 2rem;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    margin-top: 1rem;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    justify-items: center;
+    
+}
+
+.item img {
+    grid-area: image;
+}
+
+.itemtotal {
+    grid-area: total;
+    color:var(--blue);
+}
+
+.dimmed {
+    opacity: .5;
+}
+
+#reaction {
+    grid-area: title;
+    color: var(--light-red);
+    background: var(--light-red-bg);
+}
+
+#memory {
+    grid-area: title;
+    color: var(--orange);
+    background: var(--orange-bg);
+}
+
+#verbal {
+    grid-area: title;
+    color: var(--green);
+    background: var(--green-bg);
+}
+
+#visual {
+    grid-area: title;
+    color: var(--cobalt-blue);
+    background: var(--cobalt-blue-bg);
+}
+
+.btn {
+    position: relative;
+    color: white;
+    background-color: var(--blue);
+    border-radius: 2rem;
+    font-family: 'HankenGrotesk';
+    font-weight: 500;
+    font-size: large;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    z-index: 1;
+}
+
+.btn::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(0deg, var(--gradient-top) 0%, var(--gradient-bottom) 100%);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    opacity: 0;
+    border-radius: 2rem;
+}
+
+.btn:hover::before {
+    opacity: 1;   
+}
+
+.btn:active {
+    font-weight: 800;
+}
